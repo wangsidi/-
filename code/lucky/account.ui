@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Account</class>
+ <widget class="QMainWindow" name="Account">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2089</width>
+    <height>959</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>演示demo</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+/*背景色*/
+QMainWindow{
+	background-color:rgb(30, 30, 33); 
+}
+/*输入框*/
+QLineEdit{
+	background-color:transparent;
+	border:1.5px solid rgb(20,150,240);
+	border-radius:3px;
+	font: 11pt &quot;新宋体&quot;;
+	color: rgb(245,245,245);
+	padding-left: 5px;
+}
+/*选择框*/
+QComboBox{
+	font: 11pt &quot;新宋体&quot;;
+	background-color:rgb(30, 30, 33); 
+	color: rgb(245,245,245);
+	border:1.5px solid rgb(20,150,240);
+	padding-left:5px;
+	padding-right:10px;
+}
+/*文本*/
+QLabel{	
+	font: 13pt &quot;Adobe 黑体 Std R&quot;;
+	color: rgb(245,245,245);
+}
+/*错误文本*/
+QLabel#error{
+	color: red;
+	font: 9pt &quot;Adobe 黑体 Std R&quot;;
+}
+/*按钮*/
+QPushButton{
+	border: 1px solid rgb(45,85,130);
+	border-radius:3px;
+	background-color:rgb(45,85,130);	
+	font: 10pt &quot;新宋体&quot;;
+	padding: 3px;
+	padding-left: 6px;
+	padding-right: 6px;
+	color: rgb(245,245,245);
+}
+QPushButton#hideMsg{
+	border: none;
+	background-color:transparent;	
+	font: 10pt &quot;新宋体&quot;;
+	color: rgb(245,245,245);
+}
+/*鼠标停留在按钮上*/
+QPushButton:hover{
+	background-color:rgba(18,150,18, 0.8);
+	color: rgb(245,245,245);
+}
+/*消息框*/
+QTextEdit#message{
+	border: 1px solid rgb(50, 50, 50);
+	background-color:transparent; 
+	color:red;
+	padding: 10px;
+}
+/*菜单栏*/
+QListWidget#menu
+{
+	outline: 0;
+	show-decoration-selected: 0;
+	background-color: transparent; 
+	border-top-left-radius: 49px;  
+	border-bottom-left-radius: 49px; 
+	border : none;
+	color:rgb(245,245,245);
+}
+QListWidget#menu::item
+{
+	outline: 0;
+	show-decoration-selected: 0;
+	border: 1px solid rgb(50,50,50); 
+	border-top-left-radius: 49px; 
+	border-bottom-left-radius: 49px; 
+	background: transparent;
+	margin: 5px;
+	padding: 5px;
+}
+/*鼠标停留菜单列表项*/
+QListWidget#menu::item:hover
+{
+	color:red;
+}
+/*鼠标选中菜单列表项*/
+QListWidget#menu::item:selected
+{
+	color:rgba(245,245,245,0.8);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QWidget" name="head" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="5">
+        <spacer name="horizontalSpacer_12">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="availableFund">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="subscription">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>订阅</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="6">
+        <widget class="QLabel" name="information">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="reconnectBtn">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="text">
+          <string>重新连接</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0" rowspan="2" colspan="2">
+     <widget class="Line" name="line">
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(50, 50, 50);</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1" rowspan="2">
+     <widget class="QPushButton" name="hideMsg">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <spacer name="horizontalSpacer_13">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>1711</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="0">
+     <widget class="QWidget" name="mainView" native="true">
+      <layout class="QGridLayout" name="gridLayout_7">
+       <item row="2" column="1" rowspan="2">
+        <widget class="Line" name="line_2">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(50, 50, 50);</string>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QListWidget" name="menu">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>5000</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="cursor" stdset="0">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::CustomContextMenu</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>下单</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>委托查询</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>持仓查询</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>资金查询</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>行情查询</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="3" rowspan="2">
+        <widget class="QTextEdit" name="message">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2" rowspan="2">
+        <widget class="QStackedWidget" name="optionView">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="order">
+          <layout class="QGridLayout" name="gridLayout_2">
+           <property name="leftMargin">
+            <number>100</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item row="1" column="0">
+            <widget class="QLabel" name="labelFutuExchType">
+             <property name="text">
+              <string>交易类别:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="2">
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="4" column="2">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>21</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="labelEntrustAmount">
+             <property name="text">
+              <string>委托数量:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="labelFuturesDirection">
+             <property name="text">
+              <string>开平仓方向:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QComboBox" name="futuExchType">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>F1      郑州交易所</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>F2      大连交易所</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>F3      上海交易所</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>F4      金融交易所</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>F5      能源交易所</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="4">
+            <spacer name="horizontalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="labelFutuCode">
+             <property name="text">
+              <string>合约代码:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="2" colspan="3">
+            <widget class="QLineEdit" name="futuEntrustPrice">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maxLength">
+              <number>12</number>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="2">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>21</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="1">
+            <spacer name="horizontalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="3" colspan="2">
+            <spacer name="horizontalSpacer_11">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>450</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="2">
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>15</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="labelFutuEntrustPrice">
+             <property name="text">
+              <string>委托价格:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="labelEntrustBs">
+             <property name="text">
+              <string>买卖方向:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2" colspan="2">
+            <widget class="QComboBox" name="entrustBs">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>买入       </string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>卖出       </string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="3" column="2" colspan="3">
+            <widget class="QLineEdit" name="futuCode">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maxLength">
+              <number>30</number>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="2">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="2">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="6" column="2">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>25</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="1">
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1">
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="2" colspan="2">
+            <widget class="QComboBox" name="futuresDirection">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>开仓</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>平仓</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>交割</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>平今仓</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>平仓+平今仓</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="5" column="4">
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>394</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="2" colspan="3">
+            <widget class="QLineEdit" name="entrustAmount">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maxLength">
+              <number>12</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="14" column="2">
+            <widget class="QWidget" name="noticeWidget" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0">
+              <item>
+               <widget class="QPushButton" name="orderConfirm">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>下单</string>
+                </property>
+                <property name="shortcut">
+                 <string>Return</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>30</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="error">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="entrustSearch">
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(38,38,40);</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0" colspan="2">
+            <widget class="EntrustTable" name="entrustTable">
+             <property name="mouseTracking">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QTableView
+{
+	background-color: transparent;
+	font:14px &quot;微软雅黑&quot;;
+	text-align:center;
+	color:white;
+	gridline-color:rgb(50, 50, 50);
+}
+ 
+QTableView::item
+{	
+	font:14px &quot;微软雅黑&quot;;
+	color:white; 
+}
+ 
+QHeaderView::section {	
+	color: white;
+	text-align:center;
+	background-color: transparent;
+	border:2px solid rgb(50, 50, 50);
+	border-left:none;
+}</string>
+             </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="last">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(45,85,130);</string>
+             </property>
+             <property name="text">
+              <string>上一页</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="next">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(45,85,130);</string>
+             </property>
+             <property name="text">
+              <string>下一页</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="BargainTable" name="bargainTable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>500</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QTableView
+{
+	background-color: transparent;
+	font:14px &quot;微软雅黑&quot;;
+	text-align:center;
+	color:white;
+	gridline-color:rgb(50, 50, 50);
+}
+ 
+QTableView::item
+{	
+	font:14px &quot;微软雅黑&quot;;
+	color:white; 
+}
+ 
+QTableView::item:selected
+{	
+	color:#677483;
+}
+ 
+QHeaderView::section {	
+	color: white;
+	text-align:center;
+	background-color: transparent;
+	border:2px solid rgb(50, 50, 50);
+	border-left:none;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="positionSearch">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(38, 38 ,40);</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0" colspan="2">
+            <widget class="PositionTable" name="positionTable">
+             <property name="styleSheet">
+              <string notr="true">QTableView
+{
+	background-color: transparent;
+	font:14px &quot;微软雅黑&quot;;
+	text-align:center;
+	color:white;
+	gridline-color:rgb(50, 50, 50);
+}
+ 
+QTableView::item
+{	
+	font:14px &quot;微软雅黑&quot;;
+	/*color:white; */
+}
+ 
+QTableView::item:selected
+{	
+	color:#677483;
+}
+ 
+QHeaderView::section {	
+	color: white;
+	text-align:center;
+	background-color: transparent;
+	border:2px solid rgb(50, 50, 50);
+	border-left:none;
+}
+QTableCornerButton::section{background:rgb(38, 38 ,40);}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="last2">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(45,85,130);	</string>
+             </property>
+             <property name="text">
+              <string>上一页</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="next2">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(45,85,130);	</string>
+             </property>
+             <property name="text">
+              <string>下一页</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="fundSearch">
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="1" column="1">
+            <widget class="QLabel" name="fundAccountLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>资产账户:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="fundAccountText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="beginBalanceLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>期初余额:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="beginBalanceText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="currentBalanceLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>当前余额:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLabel" name="currentBalanceText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="enableBalanceLable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>可用资金:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLabel" name="enableBalanceText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLabel" name="preEntrustBalanceLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>当日开仓预冻结金额:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="QLabel" name="preEntrustBalanceText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLabel" name="entrustBalanceLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>委托金额:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
+            <widget class="QLabel" name="entrustBalanceText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLabel" name="entrustFareLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>委托费用:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="QLabel" name="entrustFareText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QLabel" name="holdIncomeLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>期货盯市盈亏:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="2">
+            <widget class="QLabel" name="holdIncomeText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLabel" name="holdIncomeFloatLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>持仓浮动盈亏:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="2">
+            <widget class="QLabel" name="holdIncomeFloatText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QLabel" name="beginEquityBalanceLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>期初客户权益:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="2">
+            <widget class="QLabel" name="beginEquityBalanceText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <widget class="QLabel" name="equityBalanceLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>客户权益:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="2">
+            <widget class="QLabel" name="equityBalanceText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="1">
+            <widget class="QLabel" name="holdMarginLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>持仓保证金:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="2">
+            <widget class="QLabel" name="holdMarginText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <widget class="QLabel" name="clientRiskRateLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>客户风险率:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="2">
+            <widget class="QLabel" name="clientRiskRateText">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="quotaSearch">
+          <layout class="QGridLayout" name="gridLayout_8" columnstretch="10,10,2,1,2,10,20">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="2" column="4">
+            <widget class="QPushButton" name="next3">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(45,85,130);	</string>
+             </property>
+             <property name="text">
+              <string>下一页</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>348</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="5">
+            <spacer name="horizontalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>349</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="3">
+            <spacer name="verticalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>13</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="2">
+            <widget class="QPushButton" name="last3">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(45,85,130);	</string>
+             </property>
+             <property name="text">
+              <string>上一页</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="6">
+            <widget class="QWidget" name="DetailView" native="true">
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(38,38,40);</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1">
+              <item>
+               <widget class="QWidget" name="sellAndBuyWidget" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QWidget" name="sellWidget" native="true">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+	border: 1px solid red;
+	color: rgb(245,245,245);
+	background-color:rgb(38,38,40);
+}</string>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="sellLabel">
+                      <property name="text">
+                       <string>卖
+
+盘</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="SellTable" name="sellTable">
+                      <property name="styleSheet">
+                       <string notr="true">QTableView
+{
+	background-color: rgb(38, 38 ,40);
+	font:14px &quot;微软雅黑&quot;;
+	text-align:center;
+	color:white;
+	border:1px solid red;
+	border-left:none;
+}
+ 
+QTableView::item
+{	
+	font:14px &quot;微软雅黑&quot;;
+}
+ 
+QTableView::item:selected
+{	
+	color:#677483;
+}
+ 
+QHeaderView::section {	
+	color: white;
+	text-align:center;
+	background-color:  rgb(38, 38 ,40);
+	border-left:none;
+}
+QTableCornerButton::section{background:rgb(38, 38 ,40);}</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="buyWidget" native="true">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+	border: 1px solid red;
+	color: rgb(245,245,245);
+	background-color:rgb(38,38,40);
+}</string>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_3">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="buyLabel">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="text">
+                       <string>买
+
+盘</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="BuyTable" name="buyTable">
+                      <property name="styleSheet">
+                       <string notr="true">QTableView
+{
+	background-color: rgb(38, 38 ,40);
+	font:14px &quot;微软雅黑&quot;;
+	text-align:center;
+	color:white;
+	border:1px solid red;
+	border-left:none;
+}
+ 
+QTableView::item
+{	
+	font:14px &quot;微软雅黑&quot;;
+}
+ 
+QTableView::item:selected
+{	
+	color:#677483;
+}
+ 
+QHeaderView::section {	
+	color: white;
+	text-align:center;
+	background-color:  rgb(38, 38 ,40);
+	border-left:none;
+}
+QTableCornerButton::section{background:rgb(38, 38 ,40);}</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="ClickedWidget" name="detailWidget" native="true">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_9">
+                 <item row="0" column="3">
+                  <widget class="QLabel" name="preSettleValue">
+                   <property name="styleSheet">
+                    <string notr="true">color:rgb(0, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QLabel" name="settlePriceText">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(245, 245, 245);</string>
+                   </property>
+                   <property name="text">
+                    <string>结算价:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="holdAmountText">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(245, 245, 245);</string>
+                   </property>
+                   <property name="text">
+                    <string>持仓量:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="3">
+                  <widget class="QLabel" name="businessBalanceValue">
+                   <property name="styleSheet">
+                    <string notr="true">color:rgb(0, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLabel" name="businessAmountValue">
+                   <property name="styleSheet">
+                    <string notr="true">color:rgb(0, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="closePriceText">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(245, 245, 245);</string>
+                   </property>
+                   <property name="text">
+                    <string>收盘价:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="preCloseText">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(245, 245, 245);</string>
+                   </property>
+                   <property name="text">
+                    <string>昨收:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="preCloseValue">
+                   <property name="styleSheet">
+                    <string notr="true">color:rgb(0, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="2">
+                  <widget class="QLabel" name="businessBalanceText">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(245, 245, 245);</string>
+                   </property>
+                   <property name="text">
+                    <string>成交金额:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLabel" name="closePriceValue">
+                   <property name="styleSheet">
+                    <string notr="true">color:rgb(0, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="3">
+                  <widget class="QLabel" name="settlePriceValue">
+                   <property name="styleSheet">
+                    <string notr="true">color:rgb(0, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="businessAmountText">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(245, 245, 245);</string>
+                   </property>
+                   <property name="text">
+                    <string>成交数量:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="2">
+                  <widget class="QLabel" name="preSettleText">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(245, 245, 245);</string>
+                   </property>
+                   <property name="text">
+                    <string>昨结:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QLabel" name="holdAmountValue">
+                   <property name="styleSheet">
+                    <string notr="true">color:rgb(0, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <spacer name="horizontalSpacer_14">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>217</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="3">
+            <spacer name="horizontalSpacer_15">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>68</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0" colspan="6">
+            <widget class="FreezeTableWidget" name="quotaTable">
+             <property name="tabletTracking">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QTableView
+{
+	background-color: rgb(38, 38 ,40);
+	font:14px &quot;微软雅黑&quot;;
+	text-align:center;
+	color:white;
+	gridline-color:rgb(50, 50, 50);
+}
+ 
+QTableView::item
+{	
+	font:14px &quot;微软雅黑&quot;;
+	color:white; 
+}
+ 
+QTableView::item:selected
+{	
+	color:#677483;
+}
+ 
+QHeaderView::section {	
+	color: white;
+	text-align:center;
+	background-color:  rgb(38, 38 ,40);
+	border:1px solid rgb(50, 50, 50);
+	border-left:none;
+}
+QTableCornerButton::section{background:rgb(38, 38 ,40);}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="subStatus">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2089</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>EntrustTable</class>
+   <extends>QTableView</extends>
+   <header>widget/entrusttable.h</header>
+  </customwidget>
+  <customwidget>
+   <class>BargainTable</class>
+   <extends>QTableView</extends>
+   <header>widget/bargaintable.h</header>
+  </customwidget>
+  <customwidget>
+   <class>PositionTable</class>
+   <extends>QTableView</extends>
+   <header>widget/positiontable.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ClickedWidget</class>
+   <extends>QWidget</extends>
+   <header>widget/clickedwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>BuyTable</class>
+   <extends>QTableView</extends>
+   <header>widget/buy/buytable.h</header>
+  </customwidget>
+  <customwidget>
+   <class>SellTable</class>
+   <extends>QTableView</extends>
+   <header>widget/sell/selltable.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FreezeTableWidget</class>
+   <extends>QTableView</extends>
+   <header>widget/freezetablewidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
